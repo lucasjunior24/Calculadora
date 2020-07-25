@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'RobotoMedium';
+  src: url('./fonts/Roboto-Medium.ttf');
+}
+* {
+  font-family: 'RobotoMedium', monospace;
+}
+body {
+  /* deixa elemento bo meio da tela */
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  /* centraliza no eixo y */
+
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(to right, rgb(83, 105, 118), rgb(41, 46, 73));
+}
