@@ -3,7 +3,7 @@
   src: url('./fonts/Roboto-Medium.ttf');
 }
 * {
-  font-family: 'RobotoMedium', monospace;
+  font-family: 'Roboto Medium', monospace;
 }
 body {
   /* deixa elemento bo meio da tela */
