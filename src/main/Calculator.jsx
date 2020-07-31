@@ -30,7 +30,33 @@ export default class Calculator extends Component {
         this.setState({ ...initialState })
     }
     setOperation(operation) {
-        console.log(operation)
+        if (this.state.current === 0) {
+            this.setState({ operation, current: 1, clearDisplay: true })
+        } else {
+            const equals = operation === '='
+            const currentOperatoion = this.state.operation
+
+            // gerando um clone de values
+            const values = [...this.state.values]
+            // eval é a funcao  que vai fazer os calcukis da operacao
+            try {
+                values[0] = eval(`${values[0]} ${currentOperatoion} ${values[1]}`)
+            } catch (e) {
+                values[0] = this.state.values[0]
+            }
+
+            values[1] = 0
+
+            this.setState({
+                // o resultado da operacao sera arnazenado no display para q ele seja exibido
+                displayValue: values[0],
+                // se a opercao for um equals, a operacao sera nula (concluida) 
+                operation: equals ? null : operation,
+                current: equals ? 0 : 1,
+                clearDisplay: !equals,
+                values
+            })
+        }
     }
     addDigit(n) {
         // regra para evitar ter dois pontos na calculadora  
